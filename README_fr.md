@@ -56,28 +56,28 @@ Par défaut, seuls les éléments exportés dans les différents `index.ts` sero
 ```bash
 bun run test
 ```
--> Exécute `bddgen` (génération automatique) puis lance les tests Playwright en mode headless.
+→ Exécute `bddgen` (génération automatique) puis lance les tests Playwright en mode headless.
 
 ### **Lancer les tests (avec UI)** :
 
 ```bash
 bun run test:ui
 ```
--> Exécute `bddgen` puis lance les tests et affiche automatiquement le rapport HTML interactif.
+→ Exécute `bddgen` puis lance les tests et affiche automatiquement le rapport HTML interactif.
 
 ### **Lancer les tests en mode headful (navigateur visible)** :
 
 ```bash
 bun run test:headful
 ```
--> Exécute `bddgen` puis lance les tests en affichant les fenêtres du navigateur.
+→ Exécute `bddgen` puis lance les tests en affichant les fenêtres du navigateur.
 
 ### **Afficher manuellement le rapport des derniers tests exécutés** :
 
 ```bash
 bun run report
 ```
--> Lance un serveur HTTP pour afficher le dernier rapport HTML généré.
+→ Lance un serveur HTTP pour afficher le dernier rapport HTML généré.
 
 ### Lint / format
 Par défaut, utilise [biomejs](https://biomejs.dev) pour le linting et le formatage.
