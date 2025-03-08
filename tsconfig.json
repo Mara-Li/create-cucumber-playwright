@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "./tests",
+    "baseUrl": "./tests",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node", "@playwright/test", "@cucumber/cucumber"],
+    "paths": {
+      "@support": ["support/index.ts"],
+      "@support/*": ["support/*"],
+      "@pages": ["pages/index.ts"],
+      "@steps/*": ["steps/*"],
+      "@utils": ["utils/index.ts"],
+    }
+  },
+  "include": ["tests/**/*.ts"],
+  "exclude": ["node_modules"]
+}
