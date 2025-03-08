@@ -2,6 +2,8 @@
 
 Ce template permet d'écrire facilement des tests End-to-End en TypeScript en combinant **Playwright** et **Cucumber (Gherkin)** grâce à **`playwright-bdd`**.
 
+-> [Version anglaise](README.md)
+
 ---
 
 ## 📋 Pré-requis
