@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "commonjs",
+    "module": "ESNext",
+    "resolveJsonModule": true,
     "moduleResolution": "Node",
     "sourceMap": true,
     "outDir": "dist",
@@ -11,15 +12,35 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["node", "@playwright/test", "@cucumber/cucumber"],
+    "types": [
+      "node",
+      "@playwright/test"
+    ],
     "paths": {
-      "@support": ["support/index.ts"],
-      "@support/*": ["support/*"],
-      "@pages": ["pages/index.ts"],
-      "@steps/*": ["steps/*"],
-      "@utils": ["utils/index.ts"],
+      "@support": [
+        "support/index.ts"
+      ],
+      "@support/*": [
+        "support/*"
+      ],
+      "@pages": [
+        "pages/index.ts"
+      ],
+      "@steps/*": [
+        "steps/*"
+      ],
+      "@utils": [
+        "utils/index.ts"
+      ],
+      "@fixtures": [
+        "fixtures/index.ts"
+      ],
     }
   },
-  "include": ["tests/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "tests/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

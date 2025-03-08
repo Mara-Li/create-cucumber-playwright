@@ -34,6 +34,8 @@ tests/
 │   └── *.ts              # test setup/teardown
 ├── utils/
 │   └── *.ts              # Fonctions utilitaire/réutilisables  
+├── fixtures/
+│   └── *.json            # Fichiers à lire pour vos tests e2e. ie: data.json, en.json...
 ├── playwright.config.ts  # Configuration Playwright
 └── tsconfig.json         # Configuration TypeScript
 └── biome.json            # Configuration Biome
@@ -45,8 +47,35 @@ Chaque dossier peut être importé avec l'aide des chemins définis dans `tsconf
 - `@pages` pour `tests/pages`
 - `@support` pour `tests/support`
 - `@utils` pour `tests/utils`
+- `@fixtures` pour `tests/fixtures`
 
 Par défaut, seuls les éléments exportés dans les différents `index.ts` seront accessibles, sauf pour les fichiers du dossiers `steps`.
+
+### Importer des JSON directement pour les fixtures
+
+Avec Typescript 4.0, vous pouvez importer des fichiers JSON directement dans vos tests. Par exemple, si vous avez un fichier `data.json` dans le dossier `fixtures`, vous pouvez l'importer comme ceci :
+
+```ts
+import * as data from '@fixtures/data.json' with {type: "json"}
+//you can have the autocomplete for the data object!
+console.log(data.hello) // "world"
+```
+
+Cela peut être utile si vous ne connaissez que les clé que l'objet que vous souhaitez utiliser, et non son contenu (comme pour des codes d'erreurs). Par exemple, dans votre Gherkin, vous pouvez utiliser :
+
+```gherkin
+Then Le message d'erreur doit correspondre à "error.invalid.email"
+```
+
+Et dans la définition du step :
+
+```ts
+import * as errors from '@fixtures/errors.json' with {type: "json"}
+
+Then('Le message d\'erreur doit correspondre à {string}', async ({ page }, errorKey: string) => {
+  await expect(page).toHaveText(errors[errorKey]);
+});
+```
 
 ---
 ## ⚙️ Scripts disponibles
